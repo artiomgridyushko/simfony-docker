@@ -1,0 +1,5 @@
+# config/routes.yaml
+
+homepage:
+  path: /
+  controller: src\Controller\DefaultController::index

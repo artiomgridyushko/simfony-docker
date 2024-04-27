@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  php-apache:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
+    networks:
+      - symfony-network
+
+  # Другие сервисы, такие как база данных, могут быть добавлены здесь
+
+networks:
+  symfony-network:
+    driver: bridge
